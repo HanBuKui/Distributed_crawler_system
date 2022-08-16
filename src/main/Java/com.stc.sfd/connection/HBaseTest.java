@@ -24,7 +24,7 @@ public class HBaseTest {
 
     public static Connection connection;
 
-    public void getconnect() throws IOException {
+    public static void getconnect() throws IOException {
         conf = HBaseConfiguration.create();
         conf.set("hbase.zookeeper.quorum","node2");
         conf.set("hbase.zookeeper.property.clientPort","2181");
