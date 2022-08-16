@@ -40,7 +40,8 @@
         <!-- mysql -->
 
         <!-- log4j 日志依赖https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-log4j -->
-             
+
+        <!--zookeeper-->
         <dependency>
             <groupId>org.apache.zookeeper</groupId>
             <artifactId>zookeeper</artifactId>
