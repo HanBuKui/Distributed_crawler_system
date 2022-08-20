@@ -1,5 +1,7 @@
 package com.spider.processor;
 
+import com.spider.client.JDItemClient;
+import com.spider.client.JDSearchClient;
 import com.spider.processor.itemProcessor.JDItemProcessor;
 import com.spider.processor.priceProcessor.GetJDPrice;
 import com.spider.processor.priceProcessor.GetPrice;
@@ -17,6 +19,37 @@ import us.codecraft.webmagic.Spider;
  * @Version: 1.0
  */
 public class spiderTest {
+
+
+    /**
+    *@Description: 第一步爬取搜索页面  目前只执行第一页的爬取
+    *@Param: []
+    *@return: void
+    */
+    @Test
+    public void testSearchClient(){
+        JDSearchClient searchClient = new JDSearchClient();
+        searchClient.getInfoBySearch("手机");
+    }
+
+
+    /**
+     *@Description: 第二步，根据调度系统爬取详细页面
+     *@Param: []
+     *@return: void
+     */
+    @Test
+    public void testItemClient(){
+        //执行testSearchClient得到的json   经调度系统调度到此节点
+        String json = "{\"pic\":\"https://img13.360buyimg.com/n7/jfs/t1/219583/26/7800/151098/61b8a3f2E2879c4f6/9b73c1d24e0abecb.jpg\",\"sku\":\"100016931023\",\"spu\":\"100016931023\",\"url\":\"https://item.jd.com/100016931023.html\"}";
+        JDItemClient jdItemClient = new JDItemClient();
+        jdItemClient.getInfoByItem(json);
+    }
+
+
+    
+    
+    
     @Test
     public void testGetPriceSpider() {
         String url = "https://p.3.cn/prices/mgets?skuIds=J_100016931023";

@@ -1,6 +1,7 @@
 package com.spider.processor.priceProcessor;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import us.codecraft.webmagic.Spider;
 
 /**
@@ -11,6 +12,7 @@ import us.codecraft.webmagic.Spider;
  * @Version: 1.0
  */
 @Data
+@NoArgsConstructor
 public class GetJDPrice implements GetPrice {
     private JDPriceProcessor processor;
 

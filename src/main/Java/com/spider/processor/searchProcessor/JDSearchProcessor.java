@@ -35,7 +35,7 @@ public class JDSearchProcessor implements PageProcessor {
             Html oneItem = new Html(items);
             //获取spu
             String spu = oneItem.$(".gl-item","data-spu").toString();
-            System.out.println("spu is "+spu);
+//            System.out.println("spu is "+spu);
             //获取一系列sku  找到li里面的class = “ps-item”
             List<String> skus = oneItem.$("li .ps-item").all();
             for (String s:skus){
@@ -57,9 +57,8 @@ public class JDSearchProcessor implements PageProcessor {
                  */
                 String jsonInfo = JSON.toJSONString(searchItemInfo);
                 //提交
-
-
-
+                //此处以输出代替
+                System.out.println(jsonInfo);
                 /*
                 将该信息交给调度系统（结束）
                  */

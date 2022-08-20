@@ -18,10 +18,6 @@ import java.util.Date;
 @NoArgsConstructor
 public class Item {
     /*
-    唯一主键id？（或许与spu作用相同）
-     */
-    private Long id;
-    /*
     商品集合id
      */
     private String spu;
@@ -48,9 +44,14 @@ public class Item {
     /*
     创建时间
      */
-    private Date created;
-    /*
-    修改时间
-     */
-    private Date updated;
+    private Date createTime;
+
+    public Item(SearchItemInfo info){
+        this.spu = info.getSpu();
+        this.sku = info.getSku();
+        this.pic = info.getPic();
+        this.url = info.getUrl();
+        createTime = new Date();
+    }
+
 }
