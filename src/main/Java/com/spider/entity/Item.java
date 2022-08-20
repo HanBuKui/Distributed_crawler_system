@@ -24,11 +24,11 @@ public class Item {
     /*
     商品集合id
      */
-    private Long spu;
+    private String spu;
     /*
     商品最小品类id
      */
-    private Long sku;
+    private String sku;
     /*
     商品标题
      */

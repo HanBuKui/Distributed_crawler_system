@@ -12,16 +12,15 @@ import us.codecraft.webmagic.Spider;
  */
 @Data
 public class GetJDPrice implements GetPrice {
-    private JDPriceProcessor spider;
+    private JDPriceProcessor processor;
 
     @Override
     public String getPrice(String product_id) {
         String url = "https://p.3.cn/prices/mgets?skuIds=J_"+product_id;
-        spider = new JDPriceProcessor();
-        System.out.println(spider);
-        Spider.create(spider)
+        processor = new JDPriceProcessor();
+        Spider.create(processor)
                 .addUrl(url)
                 .run(); // 执行爬虫
-        return spider.getPriceInfo().getP();
+        return processor.getPriceInfo().getP();
     }
 }

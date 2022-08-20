@@ -1,5 +1,6 @@
 package com.spider.processor.itemProcessor;
 
+import com.spider.entity.Item;
 import us.codecraft.webmagic.Page;
 import us.codecraft.webmagic.Site;
 import us.codecraft.webmagic.Spider;
@@ -13,6 +14,10 @@ import us.codecraft.webmagic.processor.PageProcessor;
  * @Version: 1.0
  */
 public class JDItemProcessor implements PageProcessor {
+    /*
+    商品信息实体
+     */
+    private Item item;
 
     /**
     *重试次数为3次，抓取间隔为一秒
@@ -33,6 +38,7 @@ public class JDItemProcessor implements PageProcessor {
     */
     public void process(Page page) {
         System.out.println(page.getHtml().toString());
+//        page.putField();
         // css表达式
         page.putField("title", page.getHtml().toString());
         page.putField("title", page.getHtml());
@@ -47,16 +53,4 @@ public class JDItemProcessor implements PageProcessor {
     }
 
 
-    public static void main(String[] args) {
-        Spider.create(new JDItemProcessor())
-                //初始访问url地址
-                .addUrl("https://item.jd.com/100016931023.html")
-                .run(); // 执行爬虫
-
-        //https://item.jd.com/100016931023.html
-//        page.addTargetRequests(page.getHtml().links()
-//                .regex("https://item.jd.com/[0-9]+.html")
-//                .all());
-
-    }
 }

@@ -37,13 +37,12 @@ public class JDPriceProcessor implements PageProcessor {
     @SneakyThrows
     @Override
     public void process(Page page) {
-//        System.out.println(page.getHtml().toString());
         page.putField("JD_productPrice", page.getHtml().$("body","text"));
         if (page.getResultItems().get("JD_productPrice") == null) {
             //skip this page
             page.setSkip(true);
             throw new Exception("获取商品价格失败！");
-        }else {
+        } else {
             String priceJson = page.getResultItems().get("JD_productPrice").toString().trim();
             List<JDPriceInfo> jdPriceInfos = JSON.parseArray(priceJson, JDPriceInfo.class);
             priceInfo = jdPriceInfos.get(0);
